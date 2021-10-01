@@ -252,3 +252,16 @@ output_path = Path("inexpensive_loans.csv")
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 # YOUR CODE HERE!
+
+# Open the file in write mode
+with open(output_path, "w", newline='') as fp:
+    # Create csc Writer on this file
+    csvwriter = csv.writer(fp)
+
+    # Write Header row into the file
+    csvwriter.writerow(header)
+
+    # Loop thorough inexpensive loans
+    for loan in inexpensive_loans:
+        # Write loan values into the csv file.
+        csvwriter.writerow(loan.values())
