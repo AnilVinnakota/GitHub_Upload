@@ -82,6 +82,12 @@ loan = {
 # Print each variable.
 # YOUR CODE HERE!
 
+# Define variables to store Future value and Remaining Months
+future_value = loan.get("future_value")
+remaining_months = loan.get("remaining_months")
+
+# Print the future value and remaining months on console.
+print(f"The future value of the loan is {future_value} and it has {remaining_months} months remaining")
 
 # @TODO: Use the formula for Present Value to calculate a "fair value" of the loan.
 # Use a minimum required return of 20% as the discount rate.
@@ -89,12 +95,28 @@ loan = {
 #   HINT: Present Value = Future Value / (1 + Discount_Rate/12) ** remaining_months
 
 # YOUR CODE HERE!
+# Define variables to compute present value.
+discount_rate = .2
+present_value = future_value / ( (1 + (discount_rate/12)) ** remaining_months)
 
+# Print the preset value of the loan on Console.
+print (f"Present Value of the loan is {present_value}")
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
 # @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
 #    If the present value of the loan is greater than or equal to the cost, then print a message that says the loan is worth at least the cost to buy it.
 #    Else, the present value of the loan is less than the loan cost, then print a message that says that the loan is too expensive and not worth the price.
 # YOUR CODE HERE!
+
+# Define a variable to store loan cost
+loan_price = loan["loan_price"]
+
+# print message based on loan cost and present value
+if (present_value >= loan_price) :
+    # Loan cost is lower than its value. Print a message on console with a Buy recommendation
+    print(f"Present value {present_value} is greater than loan price {loan_price}. It is worth at least the cost to buy it.")
+else:
+    # Loan cost is higher than its value. Print message on console that loan is expensive.
+    print(f"Present value {present_value} is greater than loan price {loan_price}. The loan is too expensive and not worth the price")
 
 
 """Part 3: Perform Financial Calculations.
